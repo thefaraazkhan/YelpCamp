@@ -10,9 +10,11 @@ module.exports.campgroundSchema = Joi.object({
     }).required()
 });
 
-module.exports.campgroundSchema = Joi.object({
+
+// Server side validation for reviews
+module.exports.reviewSchema = Joi.object({
     review: Joi.object({
-        rating: Joi.number().required(),
+        rating: Joi.number().required().min(1).max(5),
         body: Joi.string().required()
-    })
+    }).required()
 })
