@@ -1,8 +1,10 @@
 <% layout('layouts/boilerplate') %>
+<!-- for showing added images in file upload  -->
+
    <div class="row">
       <h1 class="text-center">New Campground</h1>
       <div class="col-6 offset-3">
-         <form action="/campgrounds" method="POST" novalidate class="validated-form">
+         <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
             <div class="mb-3">
                <label class="form-label" for="title">Title</label>
                <input class="form-control" type="text" name="campground[title]" id="title" required>
@@ -17,13 +19,7 @@
                   Cannot be empty!
                </div>
             </div>
-            <div class="mb-3">
-               <label class="form-label" for="image">Image URL</label>
-               <input class="form-control" type="text" name="campground[image]" id="image" required>
-               <div class="invalid-feedback">
-                  Cannot be empty!
-               </div>
-            </div>
+            
             <div class="mb-3">
                <label class="form-label" for="price">Campground Price</label>
                <div class="input-group">
@@ -43,6 +39,25 @@
                   Cannot be empty!
                </div>   
             </div>
+
+            <div class="mb-3">
+               <label for="image" class="form-label">Choose Image(s)</label>
+               <div class="form-file custom-file">
+                     <input class="form-control custom-file-input" type="file" id="image" name="image" multiple onchange="previewMultiple(event)">
+                     <label for="image" class="form-label custom-file-label"></label>
+                 </div>
+                 <div id="formFile"></div>
+             </div>
+
+            <!-- <div class="mt-3 mb-5 custom-file">
+               <label for="image" class="form-label">Upload Images</label>
+               <input type="file" class="form-control" id="image" name="image" multiple required>
+               <div class="invalid-feedback">
+                  This campground would look much better with a picture.
+               </div>
+            </div> -->
+            <!-- <input type="file" name="image" id="" multiple> -->
+
             <div class="mb-3">
                <button class="btn btn-success">Add Campground</button>
             </div>
