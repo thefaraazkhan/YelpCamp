@@ -15,6 +15,20 @@ const storage = new CloudinaryStorage({
     }
 });
 
+
+// Below code will help transform all images to same size
+// const storage = new CloudinaryStorage({
+//     cloudinary,
+//     params: {
+//         folder: 'YelpCamp',
+//         allowedFormats: ['jpeg', 'png', 'jpg', 'heic'],
+//         transformation: [
+//             { width: 400, height: 300, gravity: "auto", crop: "fill" },
+//         ], 
+//         format: 'jpg'
+//     }
+// });
+
 module.exports = {
     cloudinary,
     storage
